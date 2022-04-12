@@ -6,7 +6,7 @@ class Ship():
         self.screen = screen
 
         # load image of ship and access
-        self.image = pygame.image.load('images/pngaaa.com-3547629.png')
+        self.image = pygame.image.load('images2/pngaaa.com-3547629.png')
         self.image = pygame.transform.scale(self.image, (50, 75))
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()

@@ -10,7 +10,7 @@ class Alien(sprite):
         self.screen = screen
         self.settings = settings
         #load alien image and scale it to fit
-        self.image = pygame.image.load('images/alien.png')
+        self.image = pygame.image.load('images2/alien.png')
         self.image = pygame.transform.scale(self.image,(80,40))
         self.rect = self.image.get.rect()
 

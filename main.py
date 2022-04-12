@@ -4,7 +4,6 @@ from settings import Settings
 import game_functions as gf
 
 
-
 def alien_invasion():
     # initialize pygame library
     pygame.init()
