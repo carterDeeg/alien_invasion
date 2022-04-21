@@ -27,10 +27,6 @@ def keydown_event(event, settings, screen, ship, bullets):
         ship.moving_up = True
     if event.key == pygame.K_DOWN or event.key == pygame.K_s:
         ship.moving_down = True
-    if event.key == pygame.K_q:
-        ship.rotate_counterclockwise = True
-    if event.key == pygame.K_e:
-        ship.rotate_clockwise = True
     if event.key == pygame.K_SPACE:
         new_bullet = Bullets(settings, screen, ship)
         bullets.add(new_bullet)
