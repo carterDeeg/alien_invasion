@@ -99,8 +99,10 @@ def update_fleet(aliens):
         alien.rect.y += alien.drop
 
 
-def check_collision(bullets, aliens):
-    pygame.sprite.groupcollide(bullets, aliens, True, True)
+def check_collision(bullets, aliens, settings):
+    if pygame.sprite.groupcollide(bullets, aliens, True, True):
+        settings.score += 3
+        print(settings.score)
 
 def update_screen(settings, screen, ship, bullets, aliens):
         # color the screen with background color
@@ -118,7 +120,7 @@ def update_screen(settings, screen, ship, bullets, aliens):
         # draw the ship on the screen
         ship.blitme()
 
-        check_collision(bullets, aliens)
+        check_collision(bullets, aliens, settings)
 
         # update the display
         pygame.display.flip()
