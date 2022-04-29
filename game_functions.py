@@ -82,6 +82,22 @@ def create_alien(settings, screen, aliens, alien_number, row_number):
 
     aliens.add(alien)
 
+def update_aliens(settings, screen, ship, aliens, bullets):
+
+    # draw fleet of aliens
+    aliens.draw(screen)
+    aliens.update()
+
+    for alien in aliens:
+        if alien.check_screen():
+            update_fleet(aliens)
+
+
+def update_fleet(aliens):
+    for alien in aliens:
+        alien.direction = alien.direction * -1
+        alien.rect.y += alien.drop
+
 
 def check_collision(bullets, aliens):
     pygame.sprite.groupcollide(bullets, aliens, True, True)
@@ -95,9 +111,7 @@ def update_screen(settings, screen, ship, bullets, aliens):
             bullet.draw_bullet()
             bullet.update()
 
-        # draw fleet of aliens
-        aliens.draw(screen)
-        aliens.update()
+        update_aliens(settings, screen, ship, aliens, bullets)
 
         # update the ship
         ship.update()

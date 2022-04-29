@@ -7,8 +7,8 @@ class Settings():
 
         # screen settings
         self.bg_color = (230, 230, 230)
-        self.screen_width = 1200
-        self.screen_height = 800
+        self.screen_width = 800
+        self.screen_height = 600
 
         # bullet settings
         self.bullet_speed = 1

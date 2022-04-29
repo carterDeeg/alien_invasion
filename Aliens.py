@@ -15,7 +15,7 @@ class Alien(Sprite):
         # load alien ship image and scale it to fit screen & get rectangular properties
         self.image = pygame.image.load('images2/alien.png.jpg')
         # loads image of alien ship from directory (pixabay.com)
-        self.image = pygame.transform.scale(self.image, (80, 40)) # scales image of alien ship
+        self.image = pygame.transform.scale(self.image, (60, 30)) # scales image of alien ship
         self.rect = self.image.get_rect()
 
         # set starting location
@@ -29,6 +29,7 @@ class Alien(Sprite):
         self.number_of_aliens = int(self.available_space_x / (2* self.rect.width))
 
         self.speed = 1
+        self.drop = 3
         self.direction = 1
 
     def blitme(self):
@@ -39,7 +40,9 @@ class Alien(Sprite):
     def update(self):
         """ move's alien"""
         self.x += self.speed * self.direction
+
         self.rect.x = self.x
+        print (self.rect.x)
 
     def check_screen(self):
         """return True if an alien is at the edge of the screen"""
