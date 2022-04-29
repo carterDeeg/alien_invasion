@@ -26,7 +26,6 @@ def alien_invasion():
 
     # loop to start animation
     while True:
-
         # access event handler from game_functions
         gf.check_events(settings, screen, ship, bullets)
         # updates the screen from game_functions

@@ -47,17 +47,6 @@ def keyup_event(event, ship):
         ship.rotate_clockwise = False
 
 
-
-    # update the ship
-    ship.update()
-    # draw the ship on the screen
-    ship.blitme()
-
-    check_collision(bullets, aliens)
-
-
-
-
 def create_fleet(settings, screen, ship, aliens):
     """create a fleet of aliens"""
     alien = Alien(settings, screen)
@@ -97,7 +86,7 @@ def create_alien(settings, screen, aliens, alien_number, row_number):
 def check_collision(bullets, aliens):
     pygame.sprite.groupcollide(bullets, aliens, True, True)
 
-    def update_screen(settings, screen, ship, bullets, aliens):
+def update_screen(settings, screen, ship, bullets, aliens):
         # color the screen with background color
         screen.fill(settings.bg_color)
 
@@ -110,5 +99,12 @@ def check_collision(bullets, aliens):
         aliens.draw(screen)
         aliens.update()
 
-    # update the display
-    pygame.display.flip()
+        # update the ship
+        ship.update()
+        # draw the ship on the screen
+        ship.blitme()
+
+        check_collision(bullets, aliens)
+
+        # update the display
+        pygame.display.flip()
