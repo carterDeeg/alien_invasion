@@ -42,7 +42,7 @@ class Alien(Sprite):
         self.x += self.speed * self.direction
 
         self.rect.x = self.x
-        print (self.rect.x)
+
 
     def check_screen(self):
         """return True if an alien is at the edge of the screen"""

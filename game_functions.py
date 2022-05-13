@@ -2,6 +2,7 @@ import pygame
 import sys
 from bullets import Bullets
 from Aliens import Alien
+from settings import Settings
 
 
 def check_events(settings, screen, ship, bullets):
@@ -91,12 +92,14 @@ def update_aliens(settings, screen, ship, aliens, bullets):
     for alien in aliens:
         if alien.check_screen():
             update_fleet(aliens)
+            break
 
 
 def update_fleet(aliens):
     for alien in aliens:
         alien.direction = alien.direction * -1
         alien.rect.y += alien.drop
+
 
 
 def check_collision(bullets, aliens, settings):
@@ -122,5 +125,21 @@ def update_screen(settings, screen, ship, bullets, aliens):
 
         check_collision(bullets, aliens, settings)
 
+        scoreboard(settings, screen)
+
+        if len(aliens) == 0:
+            create_fleet(settings, screen, ship, aliens)
+
         # update the display
         pygame.display.flip()
+
+
+def scoreboard(settings, screen):
+    # create a text surface object, on which text is drawn on it.
+    text = settings.font.render('Score: ' + str(settings.score), True, (0, 255, 0), (0, 0, 255))
+    # create a rectangular object for the text surface object
+    text_Rect = text.get_rect()
+    # set the center of the rectangular object.
+    text_Rect.center = (settings.screen_width / 2, 35)
+
+    screen.blit(settings.text, settings.text_Rect)
